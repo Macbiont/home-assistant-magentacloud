@@ -1,0 +1,62 @@
+{
+  "title": "MagentaCLOUD",
+  "options": {
+    "step": {
+      "init": {
+        "title": "MagentaCLOUD-Backups",
+        "description": "MagentaCLOUD als Backup-Ziel anbieten. Danach in den Backup-Einstellungen separat auswählen und Verschlüsselung aktivieren. Dateien liegen im Ordner HomeAssistant-MagentaCloud. Ausschalten löscht keine Cloud-Dateien.",
+        "data": { "backup_enabled": "Backup-Ziel aktivieren" }
+      }
+    }
+  },
+  "config": {
+    "step": {
+      "user": {
+        "title": "Mit MagentaCLOUD verbinden",
+        "description": "Erstelle unter MagentaCLOUD > Einstellungen > Geräte und Sitzungen eine WebDAV-Sitzung und trage deren Zugangsdaten hier ein. Die Backup-Auswahl stellt nur das Ziel bereit: Anschließend MagentaCLOUD in den Home-Assistant-Backup-Einstellungen auswählen und Verschlüsselung aktivieren. Es werden dadurch keine Uploads gestartet.",
+        "data": {
+          "url": "WebDAV-URL",
+          "username": "Haupt-E-Mail-Adresse",
+          "password": "WebDAV-Sitzungspasswort",
+          "backup_enabled": "MagentaCLOUD auch für Backups verwenden"
+        }
+      },
+      "reauth_confirm": {
+        "title": "MagentaCLOUD neu verbinden",
+        "description": "Erstelle eine neue WebDAV-Sitzung und trage deren Passwort ein.",
+        "data": { "password": "Neues WebDAV-Sitzungspasswort" }
+      }
+    },
+    "error": {
+      "invalid_url": "Verwende eine HTTPS-WebDAV-URL ohne eingebettete Zugangsdaten, Abfrageparameter oder Fragment.",
+      "forbidden": "WebDAV-Zugriff verweigert. Prüfe die Berechtigungen der Sitzung.",
+      "temporarily_unavailable": "MagentaCLOUD ist vorübergehend nicht verfügbar oder begrenzt Anfragen. Versuche es später erneut.",
+      "cannot_connect": "Verbindung mit MagentaCLOUD fehlgeschlagen.",
+      "invalid_auth": "E-Mail-Adresse oder WebDAV-Sitzungspasswort ist ungültig.",
+      "quota_unavailable": "MagentaCLOUD hat keine Speicherplatzinformationen geliefert."
+    },
+    "abort": {
+      "already_configured": "Dieses MagentaCLOUD-Konto ist bereits eingerichtet.",
+      "reauth_successful": "MagentaCLOUD wurde erfolgreich neu verbunden."
+    }
+  },
+  "entity": {
+    "switch": {
+      "backup_enabled": { "name": "Backup-Ziel aktivieren" }
+    },
+    "sensor": {
+      "last_backup": { "name": "Letztes Backup" },
+      "used": { "name": "Belegter Speicher" },
+      "available": { "name": "Verfügbarer Speicher" },
+      "total": { "name": "Gesamtspeicher" },
+      "percent_used": { "name": "Speicherbelegung" },
+      "daily_change": { "name": "Speicheränderung (24 h)" },
+      "monthly_change": { "name": "Speicheränderung (30 Tage)" },
+      "last_success": { "name": "Letzte Aktualisierung" },
+      "latency": { "name": "WebDAV-Latenz" }
+    },
+    "binary_sensor": {
+      "connection": { "name": "Verbindung" }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "domain": "magentacloud",
+  "name": "MagentaCLOUD",
+  "codeowners": ["@Macbiont"],
+  "config_flow": true,
+  "documentation": "https://github.com/Macbiont/home-assistant-magentacloud",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/Macbiont/home-assistant-magentacloud/issues",
+  "version": "0.3.0"
+}

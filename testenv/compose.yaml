@@ -1,0 +1,17 @@
+services:
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:2026.9.3
+    ports:
+      - "127.0.0.1:18123:8123"
+    environment:
+      TZ: Europe/Rome
+    volumes:
+      - test_config:/config
+      - ./configuration.yaml:/config/configuration.yaml:ro
+      - ../custom_components/magentacloud:/config/custom_components/magentacloud:ro
+    restart: "no"
+    mem_limit: 2g
+    cpus: 2
+
+volumes:
+  test_config:

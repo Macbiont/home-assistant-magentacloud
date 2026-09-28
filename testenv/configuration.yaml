@@ -1,0 +1,11 @@
+# Deliberately no default_config: no automatic discovery of home devices.
+homeassistant:
+  name: MagentaCLOUD Test
+  time_zone: Europe/Rome
+frontend:
+config:
+http:
+history:
+recorder:
+logger:
+  default: warning
