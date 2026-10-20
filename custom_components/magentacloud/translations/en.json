@@ -1,0 +1,62 @@
+{
+  "title": "MagentaCLOUD",
+  "options": {
+    "step": {
+      "init": {
+        "title": "MagentaCLOUD backups",
+        "description": "Offer MagentaCLOUD as a backup location. Select it separately in backup settings and enable encryption. Files are stored in HomeAssistant-MagentaCloud. Disabling this option does not delete cloud files.",
+        "data": { "backup_enabled": "Enable backup location" }
+      }
+    }
+  },
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to MagentaCLOUD",
+        "description": "Create a WebDAV session under MagentaCLOUD > Settings > Devices and sessions and enter those credentials here. Backup opt-in only offers a location: select MagentaCLOUD separately in Home Assistant backup settings and enable encryption. It does not start uploads.",
+        "data": {
+          "url": "WebDAV URL",
+          "username": "Primary email address",
+          "password": "WebDAV session password",
+          "backup_enabled": "Also use MagentaCLOUD for backups"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reconnect MagentaCLOUD",
+        "description": "Create a new WebDAV session and enter its password.",
+        "data": { "password": "New WebDAV session password" }
+      }
+    },
+    "error": {
+      "invalid_url": "Use an HTTPS WebDAV URL without embedded credentials, query or fragment.",
+      "forbidden": "WebDAV access is forbidden. Check the session permissions.",
+      "temporarily_unavailable": "MagentaCLOUD is temporarily unavailable or is limiting requests. Try again later.",
+      "cannot_connect": "Failed to connect to MagentaCLOUD.",
+      "invalid_auth": "The email address or WebDAV session password is invalid.",
+      "quota_unavailable": "MagentaCLOUD did not return storage quota information."
+    },
+    "abort": {
+      "already_configured": "This MagentaCLOUD account is already configured.",
+      "reauth_successful": "MagentaCLOUD was reconnected successfully."
+    }
+  },
+  "entity": {
+    "switch": {
+      "backup_enabled": { "name": "Enable backup location" }
+    },
+    "sensor": {
+      "last_backup": { "name": "Last backup" },
+      "used": { "name": "Used storage" },
+      "available": { "name": "Available storage" },
+      "total": { "name": "Total storage" },
+      "percent_used": { "name": "Storage used" },
+      "daily_change": { "name": "Net change in 24 hours" },
+      "monthly_change": { "name": "Net change in 30 days" },
+      "last_success": { "name": "Last successful update" },
+      "latency": { "name": "WebDAV latency" }
+    },
+    "binary_sensor": {
+      "connection": { "name": "Connection" }
+    }
+  }
+}
